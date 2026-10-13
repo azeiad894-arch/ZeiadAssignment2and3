@@ -6,37 +6,44 @@
  *
  * exercise.html is written for you and must not be edited. Every class and
  * element named below already exists in it.
- *
- * Write each rule where its TODO is, then delete the TODO comment. The exact
- * colours, sizes and fonts are yours to choose unless a TODO says otherwise —
- * make it look like something you would not be embarrassed by.
- *
- * Keep the page open in the browser and refresh after each change.
  */
 
-/* TODO: a rule for `body` that sets
- *       font-family, color, and background-color. */
+body {
+  font-family: system-ui, sans-serif;
+  color: #1a1a1a;
+  background-color: #fdfdfb;
+}
 
-/* TODO: a rule for `.page` that sets
- *       max-width, and margin (use `0 auto` to centre it). */
+.page {
+  max-width: 48rem;
+  margin: 0 auto;
+}
 
-/* TODO: a rule for `header` that sets
- *       display: flex;
- *       justify-content: space-between;
- *       align-items: center;
- *       and one more property of your choosing. */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
 
-/* TODO: a rule for `nav a` — a descendant selector, so it only affects links
- *       inside the nav — that sets
- *       color, and text-decoration. */
+nav a {
+  color: #0b6e4f;
+  text-decoration: none;
+}
 
-/* TODO: a rule for `.card-list` that sets
- *       display: flex;
- *       gap (any size);
- *       flex-wrap: wrap; */
+.card-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 
-/* TODO: a rule for `.card` that sets
- *       padding, border-radius, and background-color. */
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
 
-/* TODO: a rule for `.price` that sets
- *       color, and font-weight. */
+.price {
+  color: #0b6e4f;
+  font-weight: bold;
+}
