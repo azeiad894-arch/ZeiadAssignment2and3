@@ -15,6 +15,13 @@
 // Writing it twice is fine; pulling it out into a small function of its own is
 // also fine. Either way, remember it can come back undefined.
 
+function findCardByName(name) {
+  const cards = document.querySelectorAll("#list .card");
+  return Array.from(cards).find(
+    (card) => card.querySelector("h3")?.textContent === name
+  );
+}
+
 /**
  * Adds one product card to the end of the list.
  *
@@ -30,9 +37,21 @@
  * @returns {void}
  */
 export function addProduct(name, price) {
-  // TODO: createElement for each piece, fill them in, append them together,
-  // then append the card to #list. Nothing appears until that last step.
-  throw new Error("addProduct is not written yet");
+  const list = document.querySelector("#list");
+  if (!list) return;
+
+  const card = document.createElement("li");
+  card.classList.add("card");
+
+  const heading = document.createElement("h3");
+  heading.textContent = name;
+
+  const tag = document.createElement("p");
+  tag.classList.add("price");
+  tag.textContent = `${price} EGP`;
+
+  card.append(heading, tag);
+  list.append(card);
 }
 
 /**
@@ -43,8 +62,10 @@ export function addProduct(name, price) {
  * @returns {void}
  */
 export function removeProduct(name) {
-  // TODO: find the right card, then call .remove() on it.
-  throw new Error("removeProduct is not written yet");
+  const card = findCardByName(name);
+  if (card) {
+    card.remove();
+  }
 }
 
 /**
@@ -55,8 +76,10 @@ export function removeProduct(name) {
  * @returns {void}
  */
 export function markSoldOut(name) {
-  // TODO: find the card, then classList.add.
-  throw new Error("markSoldOut is not written yet");
+  const card = findCardByName(name);
+  if (card) {
+    card.classList.add("sold-out");
+  }
 }
 
 /**
@@ -65,8 +88,10 @@ export function markSoldOut(name) {
  * @returns {void}
  */
 export function clearProducts() {
-  // TODO: loop over all the cards and remove each one.
-  throw new Error("clearProducts is not written yet");
+  const cards = document.querySelectorAll("#list .card");
+  for (const card of cards) {
+    card.remove();
+  }
 }
 
 /**
@@ -89,5 +114,19 @@ export function clearProducts() {
  *
  * Remember `export`.
  */
+export function wireButtons() {
+  const addButton = document.querySelector("#add");
+  const resetButton = document.querySelector("#reset");
 
-// TODO: write wireButtons here.
+  if (addButton) {
+    addButton.addEventListener("click", () => {
+      addProduct("Notebook", 45);
+    });
+  }
+
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      clearProducts();
+    });
+  }
+}
