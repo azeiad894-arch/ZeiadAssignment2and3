@@ -1,0 +1,11 @@
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+  padding: 1.5rem;
+}
+
+.goods-item {
+  padding: 0.5rem 0;
+  color: #111111;
+}
